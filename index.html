@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    window.addEventListener('error', function(e) {
+      setTimeout(function() {
+        var div = document.createElement('div');
+        div.style.position = 'fixed';
+        div.style.zIndex = '99999';
+        div.style.top = '0';
+        div.style.left = '0';
+        div.style.width = '100%';
+        div.style.background = 'red';
+        div.style.color = 'white';
+        div.style.padding = '20px';
+        div.style.fontSize = '20px';
+        div.style.fontFamily = 'monospace';
+        div.style.whiteSpace = 'pre-wrap';
+        div.innerHTML = '<h2>Global Script Error:</h2>' + e.message + '<br>at ' + e.filename + ':' + e.lineno + ':' + e.colno + '<br><br>Stack:<br>' + (e.error ? e.error.stack : 'N/A');
+        document.body.appendChild(div);
+      }, 500);
+    });
+    window.addEventListener('unhandledrejection', function(e) {
+      setTimeout(function() {
+        var div = document.createElement('div');
+        div.style.position = 'fixed';
+        div.style.zIndex = '99999';
+        div.style.top = '0';
+        div.style.left = '0';
+        div.style.width = '100%';
+        div.style.background = 'orange';
+        div.style.color = 'black';
+        div.style.padding = '20px';
+        div.style.fontSize = '20px';
+        div.style.fontFamily = 'monospace';
+        div.style.whiteSpace = 'pre-wrap';
+        div.innerHTML = '<h2>Unhandled Promise Rejection:</h2>' + e.reason + '<br><br>Stack:<br>' + (e.reason && e.reason.stack ? e.reason.stack : 'N/A');
+        document.body.appendChild(div);
+      }, 500);
+    });
+  </script>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <!-- Viewport: device-width + scale=1 para 14" (1366px). shrink-to-fit evita overflow horizontal -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <title>GLOBAL POS DM — POS</title>
+  <meta name="description" content="Sistema de Punto de Venta Ultra Premium para GLOBAL POS DM" />
+  <link rel="manifest" href="./manifest.json" />
+  <!-- Preconnect Manrope (Stitch font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <script type="module" crossorigin src="./assets/index-DsIiLx3e.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-C6POawuZ.css">
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
